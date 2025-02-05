@@ -122,6 +122,21 @@ Stores details about insurance claims made by customers.
 - **Customer** ↔ **Insurance Types**:  
   A customer can have **multiple** insurance types (`1:N` relationship via `customer_insurance_types`).
 
+## Accessing the H2 Database Console
+
+You can access the in-memory H2 database console at `http://localhost:8080/h2-console` using the following details:
+
+| **Property**       | **Value**                     |
+|---------------------|-------------------------------|
+| **Driver Class**   | `org.h2.Driver`               |
+| **JDBC URL**       | `jdbc:h2:mem:claimsdb`        |
+| **User Name**      | `sa`                          |
+| **Password**       | (Leave empty)                 |
+
+**Notes**:
+- Ensure the application is running before accessing the console.
+- The JDBC URL must exactly match the configured database name (`claimsdb` in this case).
+
 
 ## Contributors
 
