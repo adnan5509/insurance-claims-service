@@ -35,8 +35,7 @@ The **Insurance Claims Service** is a Spring Boot application designed to manage
 1. **Clone the repository**:
 
    ```bash
-   git clone https://github.com/your-username/insurance-claims-service.git
-   cd insurance-claims-service
+   git clone https://github.com/adnan5509/insurance-claims-service.git
    ```
 
 2. **Install dependencies**:
@@ -67,10 +66,6 @@ http://localhost:8080/swagger-ui.html
 
 ## Database Schema
 When the application runs with Spring Data JPA, Hibernate automatically generates the following schema based on the entity mappings:
-
-# Database Schema Documentation
-
-This document outlines the structure of the database tables used in the application.
 
 ---
 
@@ -128,10 +123,9 @@ Stores details about insurance claims made by customers.
   A customer can have **multiple** insurance types (`1:N` relationship via `customer_insurance_types`).
 
 
-
 ## Contributors
 
-- **Adnan Afzal Bajwa** -
+- **Adnan Afzal Bajwa**
 
 ## Contact
 
