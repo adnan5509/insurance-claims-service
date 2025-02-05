@@ -51,16 +51,23 @@ class ClaimControllerTest {
         mockClaim.setCost(1000.0);
         mockClaim.setClaimType(InsuranceType.HEALTH);
 
-        when(claimService.createClaim(eq(1L), org.mockito.ArgumentMatchers.any(ClaimRequest.class))).thenReturn(mockClaim);
+        when(claimService.createClaim(anyLong(), org.mockito.ArgumentMatchers.any(ClaimRequest.class))).thenReturn(mockClaim);
 
         mockMvc.perform(post("/api/customers/{customerId}/claims", 1L)
                         .contentType(MediaType.APPLICATION_JSON)
-                        .content("{\"cost\": 1000.0, \"claimType\": \"HEALTH\"}"))
+                        .content("""
+                            {
+                              "claimType": "CAR",
+                              "date": "2025-02-05",
+                              "cost": 0.1
+                            }
+                        """))
                 .andExpect(status().isCreated())
-                .andExpect(jsonPath("$.id", is(1)))
-                .andExpect(jsonPath("$.cost", is(1000.0)))
-                .andExpect(jsonPath("$.claimType", is("HEALTH")));
+                .andExpect(jsonPath("$.id").value(1))
+                .andExpect(jsonPath("$.cost").value(1000.0))
+                .andExpect(jsonPath("$.claimType").value("HEALTH"));
     }
+
 
     @Test
     void testUpdateClaimStatus() throws Exception {
