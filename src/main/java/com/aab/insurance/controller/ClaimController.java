@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/api/claims")
 @Tag(name = "Claim API", description = "Operations related to insurance claims")
 public class ClaimController {
 
